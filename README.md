@@ -1,0 +1,2 @@
+# som
+Sistemas Operativos Monopuesto
