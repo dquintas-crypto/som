@@ -2,7 +2,7 @@
 node_modules/
 
 # Salida de VitePress (build)
-.docs/vitepress/dist/
+.docs/.vitepress/dist/
 
 # Archivos temporales locales
 .vitepress/cache/
@@ -24,3 +24,5 @@ Thumbs.db
 
 # Editor/IDE
 .vscode/
+
+package-lock.json

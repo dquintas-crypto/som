@@ -2,11 +2,8 @@
 node_modules/
 
 # Salida de VitePress (build)
-.docs/vitepress/dist/
+.vitepress/
 
-# Archivos temporales locales
-.vitepress/cache/
-.vitepress/temp/
 
 # Logs
 npm-debug.log*
