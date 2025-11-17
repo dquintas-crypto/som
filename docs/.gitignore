@@ -2,7 +2,9 @@
 node_modules/
 
 # Salida de VitePress (build)
-.vitepress/
+.vitepress/cache/
+.vitepress/temp/
+.vitepress/dist/ 
 
 
 # Logs
