@@ -12,7 +12,6 @@ Copia uno o varios archivos a otra ubicación.
 |---|---|
 |`copy origen destino`|Copia un archivo al destino indicado|
 |`copy *.txt D:\Backup`|Copia todos los archivos `.txt` al directorio `D:\Backup`|
-|`copy /v archivo.txt D:\`|Verifica que los archivos copiados son correctos|
 |`copy /y archivo.txt D:\`|Sobrescribe archivos sin pedir confirmación|
 
 **Ejemplos combinados:**
