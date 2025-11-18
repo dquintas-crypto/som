@@ -7,7 +7,7 @@ hero:
   text: "Monopuesto"
   tagline: Profesores - Lourdes Servera & Daniel Quintas
   image:
-    src: /images/Logo-Emili.webp
+    src: /images/logo_emili.png
     alt: VitePress
   actions:
     - theme: alt
