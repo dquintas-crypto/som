@@ -36,8 +36,7 @@ export default defineConfig({
                   { text: '🧮​ Scripts', link: '/windows/ejemplos/scripts' },                  
                   { text: '🧱​ Entorno', link: '/windows/ejemplos/entorno' }
                 ]
-              },
-              { text: '📋 Ejercicios', link: '/windows/ejercicios/directorios-archivos' }
+              }
             ]
           }
         ]
@@ -64,8 +63,7 @@ export default defineConfig({
                   { text: '🧮​ Scripts', link: '/windows/ejemplos/scripts' },                  
                   { text: '🧱​ Entorno', link: '/windows/ejemplos/entorno' }
                 ]
-              },
-              { text: '📋 Ejercicios', link: '/windows/ejercicios/directorios-archivos' }
+              }
             ]
           }
         ]
