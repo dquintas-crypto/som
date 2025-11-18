@@ -7,8 +7,8 @@ hero:
   text: "Monopuesto"
   tagline: Profesores - Lourdes Servera & Daniel Quintas
   image:
-    src: /images/logo_emili.png
-    alt: VitePress
+    src: ./images/logo_emili.png
+    alt: "IES Emili Darder"
   actions:
     - theme: alt
       text: Windows
