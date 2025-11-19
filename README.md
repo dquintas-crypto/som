@@ -2,7 +2,7 @@
 Sistemas Operativos Monopuesto
 
 
-# 📘 Proyecto VitePress — Instalación y puesta en Marcha
+## 📘 VitePress — Instalación y puesta en Marcha
 
 Este proyecto utiliza **VitePress** para generar documentación estática.
 A continuación se detallan los pasos necesarios para instalar dependencias, iniciar el entorno de desarrollo y generar el sitio para producción.
@@ -34,7 +34,6 @@ Asegúrate de tener instalado:
   ```bash
   node -v
   ```
-**npm** o **pnpm** o **yarn**
   
 ---
 
