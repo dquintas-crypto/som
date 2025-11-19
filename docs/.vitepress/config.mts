@@ -33,11 +33,15 @@ export default defineConfig({
                   { text: '🧰​ Utilidades', link: '/windows/ejemplos/utilidades' },
                   { text: '🔐​ Usuarios', link: '/windows/ejemplos/usuarios' },                  
                   { text: '💾​ Discos', link: '/windows/ejemplos/discos' },
-                    { text: '🧮​ Scripts', link: '/linux/ejemplos/scripts' },                  
+                  { text: '🧮​ Scripts', link: '/linux/ejemplos/scripts' },                  
                   { text: '🧱​ Entorno', link: '/linux/ejemplos/entorno' }
                 ]
               }
             ]
+          },
+          {
+            text: '​📔​ PowerShell',
+            link: '/windows/powershell/comandos',
           }
         ]
       }],

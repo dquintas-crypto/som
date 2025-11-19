@@ -2,7 +2,7 @@
 
 
 
-## 📘 VitePress — Instalación y puesta en Marcha
+## 📘 VitePress — Instalación y puesta en marcha
 
 Este proyecto utiliza **VitePress** para generar documentación estática.
 A continuación se detallan los pasos necesarios para instalar dependencias, iniciar el entorno de desarrollo y generar el sitio para producción.
