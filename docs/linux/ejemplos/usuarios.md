@@ -5,196 +5,214 @@ title: ​🔐​ Permisos y propietarios
 # ​🔐​ Permisos y propietarios
 
 
-## 1. `net user` 
 
-Administrar usuarios locales
+## 1. `chmod`
 
-Permite crear, modificar o eliminar cuentas de usuario.
-
-|Comando|Descripción|
-|---|---|
-|`net user`|Muestra todos los usuarios locales del sistema|
-|`net user nombre_usuario`|Muestra información detallada de un usuario|
-|`net user nombre_usuario contraseña /add`|Crea un nuevo usuario con contraseña|
-|`net user nombre_usuario /delete`|Elimina un usuario|
-|`net user nombre_usuario /active:no`|Desactiva una cuenta de usuario|
-|`net user nombre_usuario /active:yes`|Reactiva una cuenta deshabilitada|
-
-**Ejemplos:**
-
-```cmd
-net user alumno123 Contraseña123 /add
-net user alumno123 /active:no
-```
-
-> Crea un nuevo usuario y luego lo desactiva temporalmente.
-## 2. `net localgroup` 
-
-Administrar grupos locales
-
-Permite ver, crear o modificar grupos locales en el sistema.
-
-|Comando|Descripción|
-|---|---|
-|`net localgroup`|Muestra todos los grupos locales disponibles|
-|`net localgroup Administradores`|Muestra los miembros del grupo Administradores|
-|`net localgroup Profesores /add`|Crea un nuevo grupo llamado Profesores|
-|`net localgroup Profesores alumno123 /add`|Añade un usuario al grupo|
-|`net localgroup Profesores alumno123 /delete`|Quita un usuario del grupo|
-|`net localgroup Profesores /delete`|Elimina el grupo|
-
-**Ejemplo combinado:**
-
-```cmd
-net localgroup Soporte /add
-net localgroup Soporte tecnico1 /add
-```
-
-> Crea el grupo **Soporte** y agrega al usuario **tecnico1**.
-## 3. `whoami` 
-
-Identificar el usuario actual
-
-Muestra información del usuario actual que ejecuta la consola.
-
-|Comando|Descripción|
-|---|---|
-|`whoami`|Muestra el nombre del usuario actual|
-|`whoami /groups`|Lista los grupos a los que pertenece el usuario|
-|`whoami /priv`|Muestra los privilegios del usuario|
-
-**Ejemplo:**
-
-```cmd
-whoami /groups
-```
-
-> Muestra todos los grupos de seguridad asociados al usuario actual.
-## 4. `net accounts` 
-
-Configuración de contraseñas y políticas
-
-Permite ajustar políticas de seguridad y contraseñas del sistema local.
-
-|Comando|Descripción|
-|---|---|
-|`net accounts`|Muestra la configuración actual de contraseñas|
-|`net accounts /minpwlen:8`|Establece una longitud mínima de contraseña de 8 caracteres|
-|`net accounts /maxpwage:30`|Obliga a cambiar la contraseña cada 30 días|
-|`net accounts /lockoutthreshold:3`|Bloquea una cuenta tras 3 intentos fallidos|
-
-**Ejemplo combinado:**
-
-```cmd
-net accounts /minpwlen:8 /maxpwage:60 /lockoutthreshold:5
-```
-
-> Configura políticas básicas de seguridad de contraseñas.
-## 5. `icacls` 
-
-Permisos y control de acceso
-
-Permite ver, modificar o restaurar permisos NTFS en archivos y carpetas.
-
-|Comando|Descripción|
-|---|---|
-|`icacls C:\carpeta`|Muestra los permisos de la carpeta|
-|`icacls C:\carpeta /grant Usuario:F`|Concede permiso **Total (Full control)** a un usuario|
-|`icacls C:\carpeta /grant Usuario:R`|Concede permiso **Solo lectura**|
-|`icacls C:\carpeta /remove Usuario`|Elimina los permisos del usuario|
-|`icacls C:\carpeta /inheritance:r`|Desactiva la herencia de permisos|
-|`icacls C:\carpeta /save permisos.txt /t`|Guarda permisos de forma recursiva|
-|`icacls C:\ /restore permisos.txt`|Restaura permisos desde un archivo|
+| Comando                | Descripción                                                        |
+| ---------------------- | ------------------------------------------------------------------ |
+| `chmod 755 archivo`    | Cambia permisos usando notación octal                             |
+| `chmod u+x archivo`    | Añade permiso de ejecución al propietario                          |
+| `chmod g-w archivo`    | Quita permiso de escritura al grupo                               |
+| `chmod o-r archivo`    | Quita permiso de lectura a otros                                  |
+| `chmod u=rwx,g=rx,o=r` | Establece permisos específicos por usuario, grupo y otros         |
+| `chmod -R 755 carpeta` | Cambia permisos de forma recursiva                                |
 
 **Ejemplos combinados:**
 
-```cmd
-icacls C:\Proyectos /grant alumno123:M /t
+```bash
+chmod 644 documento.txt
+````
+
+> Permisos: propietario puede leer y escribir; grupo y otros solo leer.
+
+```bash
+chmod -R 700 ~/Privado
 ```
 
-> Da al usuario **alumno123** permisos de **modificación** en todos los subdirectorios de `C:\Proyectos`.
+> Solo el usuario puede acceder a la carpeta *Privado*.
 
-```cmd
-icacls D:\Compartido /grant Todos:R
+---
+
+## 2. `chown`
+
+| Comando                       | Descripción                           |
+| ----------------------------- | ------------------------------------- |
+| `chown usuario archivo`       | Cambia el propietario                 |
+| `chown usuario:grupo archivo` | Cambia propietario y grupo            |
+| `chown -R usuario carpeta`    | Cambia propietario de forma recursiva |
+
+**Ejemplos combinados:**
+
+```bash
+chown dani informe.txt
 ```
 
-> Da acceso de **solo lectura** a todos los usuarios.
-## 6. `runas` 
+> El archivo ahora pertenece al usuario *dani*.
 
-Permite ejecutar programas o comandos con las credenciales de otro usuario.
-
-|Comando|Descripción|
-|---|---|
-|`runas /user:Administrador cmd`|Abre una consola como Administrador|
-|`runas /user:profesor notepad.exe`|Abre el Bloc de notas con otro usuario|
-
-**Ejemplo:**
-
-```cmd
-runas /user:Administrador "mmc compmgmt.msc"
+```bash
+chown dani:profesores /var/www
 ```
 
-> Abre la consola de administración de equipos con privilegios de administrador.
-## 7. `net session` y `net share` 
+> Cambia propietario y grupo simultáneamente.
 
-Recursos compartidos y sesiones
+---
 
-|Comando|Descripción|
-|---|---|
-|`net session`|Muestra las sesiones de red activas|
-|`net share`|Muestra las carpetas compartidas del equipo|
-|`net share Datos=C:\Datos`|Crea un recurso compartido llamado _Datos_|
-|`net share Datos /delete`|Deja de compartir la carpeta _Datos_|
+## 3. `chgrp`
 
-**Ejemplo combinado:**
+| Comando               | Descripción                      |
+| --------------------- | -------------------------------- |
+| `chgrp grupo archivo` | Cambia solo el grupo del archivo |
+| `chgrp -R grupo dir`  | Cambia grupo de forma recursiva  |
 
-```cmd
-net share Recursos=C:\Recursos /grant:Usuarios,READ
+**Ejemplos combinados:**
+
+```bash
+chgrp alumnos tarea1.txt
 ```
 
-> Crea un recurso compartido con permisos de lectura para todos los usuarios.
-## 8. `net group` 
+> Asigna el archivo al grupo *alumnos*.
 
-Grupos en dominios (usado con Active Directory)
+---
 
-_Solo disponible en equipos unidos a un dominio._
+## 4. Tipos de permisos
 
-|Comando|Descripción|
-|---|---|
-|`net group`|Lista los grupos del dominio actual|
-|`net group Profesores /domain`|Muestra miembros del grupo Profesores en el dominio|
-|`net group Profesores alumno123 /add /domain`|Añade un usuario al grupo en el dominio|
+| Permiso | Significado       | Aplicable a            |
+| ------- | ----------------- | ---------------------- |
+| `r`     | Leer              | Archivos y directorios |
+| `w`     | Escribir          | Archivos y directorios |
+| `x`     | Ejecutar / Entrar | Archivos y directorios |
 
-**Ejemplo:**
+**Estructura típica de permisos:**
 
-```cmd
-net group Alumnos /domain
+```
+-rwxr-xr--
 ```
 
-> Lista los usuarios pertenecientes al grupo _Alumnos_ en el dominio.
-## 9. `dsquery` y `dsadd` 
+Significa:
 
-Administración avanzada de usuarios (solo dominio)
+* **Usuario**: rwx
+* **Grupo**: r-x
+* **Otros**: r--
 
-|Comando|Descripción|
-|---|---|
-|`dsquery user -name alumno*`|Busca usuarios cuyo nombre empiece por _alumno_|
-|`dsadd user "CN=Alumno1,OU=Usuarios,DC=centro,DC=local" -pwd P@ssword1`|Crea un usuario en el dominio|
+---
 
-**Ejemplo:**
+## 5. Notación octal
 
-```cmd
-dsquery user -samid profesor1
+| Número | Permiso |
+| ------ | ------- |
+| `7`    | rwx     |
+| `6`    | rw-     |
+| `5`    | r-x     |
+| `4`    | r--     |
+| `3`    | -wx     |
+| `2`    | -w-     |
+| `1`    | --x     |
+| `0`    | ---     |
+
+**Ejemplos:**
+
+### `chmod 755 archivo`
+
+```
+propietario: rwx
+grupo:      r-x
+otros:      r-x
 ```
 
-> Busca un usuario específico dentro del dominio.
+### `chmod 644 archivo`
+
+```
+propietario: rw-
+grupo:      r--
+otros:      r--
+```
+
+---
+
+## 6. Permisos especiales
+
+| Permiso | Nombre | Descripción                                               |
+| ------- | ------ | --------------------------------------------------------- |
+| `s`     | SUID   | Ejecuta un archivo con permisos del propietario           |
+| `s`     | SGID   | Ejecuta con permisos del grupo / fuerza herencia de grupo |
+| `t`     | Sticky | Solo el propietario puede borrar el archivo               |
+
+### 6.1 SUID
+
+```bash
+chmod u+s archivo
+```
+
+### 6.2 SGID
+
+```bash
+chmod g+s carpeta
+```
+
+### 6.3 Sticky bit
+
+Muy usado en `/tmp`.
+
+```bash
+chmod +t carpeta
+```
+
+---
+
+## 7. Combinaciones
+
+* Cambiar permisos y propietario:
+
+```bash
+chmod 600 secreto.txt && chown dani secreto.txt
+```
+
+> Solo dani puede leer o modificar el archivo.
+
+* Dar permisos de ejecución a varios scripts:
+
+```bash
+chmod +x *.sh
+```
+
+> Vuelve ejecutables todos los archivos `.sh`.
+
+* Asegurar que una carpeta compartida mantenga el grupo:
+
+```bash
+chmod 2775 /compartida
+```
+
+> Aplica SGID para que todos los archivos creados hereden el grupo.
+
+---
+
 ## 💡 Consejos
 
-- Ejecuta CMD como **Administrador** para usar la mayoría de comandos de usuarios y permisos.
-    
-- `whoami /priv` ayuda a verificar los privilegios antes de ejecutar cambios.
-    
-- Usa `icacls /save` antes de modificar permisos para poder restaurarlos.
-    
-- Para dominios, usa `net group`, `dsquery` y `dsadd`.
-    
+* Para ver permisos de forma clara:
+
+```bash
+ls -l
+```
+
+* Para dar permiso de ejecución rápidamente:
+
+```bash
+chmod +x script.sh
+```
+
+* Para carpetas compartidas en equipo:
+
+```bash
+chmod g+s carpeta
+```
+
+* Para proteger archivos importantes:
+
+```bash
+chmod 400 archivo
+```
+
+> Solo lectura para el propietario (ideal para claves SSH).
+
+

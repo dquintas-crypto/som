@@ -1,8 +1,8 @@
 ---
-title: ​💾​ Disco y almacenamiento 
+title: ​💾​ Disco y espacio
 ---
 
-# ​💾​ Disco y almacenamiento
+# ​💾​ Disco y espacio
 
 ## 1. `diskpart` 
 

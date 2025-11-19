@@ -21,28 +21,21 @@ title: 🐧 Comandos básicos de Linux
 
 ## 🗃️ Gestión de archivos y directorios
 
-| Comando                | Descripción                         |
-| ---------------------- | ----------------------------------- |
-| `mkdir nombre`         | Crea un directorio.                 |
-| `mkdir -p ruta/ruta`   | Crea directorios anidados.          |
-| `touch archivo`        | Crea un archivo vacío.              |
-| `cp origen destino`    | Copia un archivo.                   |
-| `cp -r origen destino` | Copia un directorio.                |
-| `mv origen destino`    | Mueve o renombra.                   |
-| `rm archivo`           | Borra un archivo.                   |
-| `rm -r directorio`     | Borra un directorio y su contenido. |
-
-📒 [Ejemplos](./ejemplos/archivos.md)
-
-## 📄 Visualización de archivos
-
-| Comando           | Descripción                                             |
-| ----------------- | ------------------------------------------------------- |
-| `cat archivo`     | Muestra el contenido del archivo.                       |
-| `less archivo`    | Muestra el contenido por páginas (salida paginada).     |
-| `head archivo`    | Primeras 10 líneas.                                     |
-| `tail archivo`    | Últimas 10 líneas.                                      |
-| `tail -f archivo` | Muestra en tiempo real lo que se escribe en el archivo. |
+| Comando                | Descripción                                              |
+| ---------------------- | -----------------------------------                      |
+| `mkdir nombre`         | Crea un directorio.                                      |
+| `mkdir -p ruta/ruta`   | Crea directorios anidados.                               |
+| `touch archivo`        | Crea un archivo vacío.                                   |
+| `cp origen destino`    | Copia un archivo.                                        |
+| `cp -r origen destino` | Copia un directorio.                                     |
+| `mv origen destino`    | Mueve o renombra.                                        |
+| `rm archivo`           | Borra un archivo.                                        |
+| `rm -r directorio`     | Borra un directorio y su contenido.                      |
+| `cat archivo`          | Muestra el contenido del archivo.                        |
+| `less archivo`         | Muestra el contenido por páginas (salida paginada).      |
+| `head archivo`         | Primeras 10 líneas.                                      |
+| `tail archivo`         | Últimas 10 líneas.                                       |
+| `tail -f archivo`      | Muestra en tiempo real lo que se escribe en el archivo.  |
 
 📒 [Ejemplos](./ejemplos/archivos.md)
 
@@ -56,6 +49,18 @@ title: 🐧 Comandos básicos de Linux
 | `chown usuario:grupo archivo` | Cambia propietario y grupo.                |
 
 📒 [Ejemplos](./ejemplos/usuarios.md)
+
+## 🌐 Red
+
+| Comando           | Descripción                          |
+| ----------------- | ------------------------------------ |
+| `ip a`            | Muestra interfaces y direcciones IP. |
+| `ping google.com` | Comprueba conectividad.              |
+| `curl url`        | Descarga contenido de una URL.       |
+| `wget url`        | Descarga archivos desde internet.    |
+| `ss -tulpn`       | Ver puertos y servicios activos.     |
+
+📒 [Ejemplos](./ejemplos/red.md)
 
 ## ⚙️ Procesos y sistema
 
@@ -72,17 +77,6 @@ title: 🐧 Comandos básicos de Linux
 
 📒 [Ejemplos](./ejemplos/administracion.md)
 
-## 🌐 Red
-
-| Comando           | Descripción                          |
-| ----------------- | ------------------------------------ |
-| `ip a`            | Muestra interfaces y direcciones IP. |
-| `ping google.com` | Comprueba conectividad.              |
-| `curl url`        | Descarga contenido de una URL.       |
-| `wget url`        | Descarga archivos desde internet.    |
-| `ss -tulpn`       | Ver puertos y servicios activos.     |
-
-📒 [Ejemplos](./ejemplos/red.md)
 
 ## 📦 Gestión de paquetes 
 
@@ -117,10 +111,12 @@ title: 🐧 Comandos básicos de Linux
 
 
 
-## 📦 Discos y espacio
+## 💾 Discos y espacio
 
 | Comando          | Descripción                         |
 | ---------------- | ----------------------------------- |
 | `df -h`          | Muestra el uso de espacio en disco. |
 | `du -sh carpeta` | Tamaño de una carpeta.              |
 | `lsblk`          | Lista discos y particiones.         |
+
+📒 [Ejemplos](./ejemplos/discos.md)

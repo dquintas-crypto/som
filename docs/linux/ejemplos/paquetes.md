@@ -1,238 +1,199 @@
 ---
-title: ​🧰​ Utilidades varias 
+title: ​📦​ Gestión de paquetes
 ---
-# ​🧰​ Utilidades varias
 
-## 1. `cls` 
+# ​📦​ Gestión de paquetes
 
-Limpiar pantalla
 
-Limpia todo el contenido mostrado en la ventana del símbolo del sistema.
+## 1. `apt update`
 
-```cmd
-cls
+| Comando            | Descripción                                         |
+| ------------------ | --------------------------------------------------- |
+| `sudo apt update`  | Actualiza la lista de paquetes disponibles           |
+| `sudo apt update -y` | Actualiza sin pedir confirmación                   |
+
+**Ejemplos combinados:**
+
+```bash
+sudo apt update
+````
+
+> Refresca la lista de repositorios.
+
+
+## 2. `apt upgrade`
+
+| Comando                 | Descripción                            |
+| ----------------------- | -------------------------------------- |
+| `sudo apt upgrade`      | Actualiza paquetes instalados          |
+| `sudo apt full-upgrade` | Actualiza y elimina paquetes obsoletos |
+| `sudo apt upgrade -y`   | Actualiza sin preguntar                |
+
+**Ejemplos combinados:**
+
+```bash
+sudo apt upgrade
 ```
 
-> Deja la pantalla limpia sin borrar el historial de comandos.
-## 2. `echo` 
+> Actualiza todos los paquetes del sistema.
 
-Muestra texto en pantalla o controla si se muestran los comandos al ejecutarlos.
-
-|Comando|Descripción|
-|---|---|
-|`echo Hola Mundo`|Muestra el texto "Hola Mundo"|
-|`echo.`|Imprime una línea en blanco|
-|`echo off`|Oculta los comandos en ejecución (usado en scripts .bat)|
-|`echo on`|Vuelve a mostrar los comandos en ejecución|
-
-**Ejemplo:**
-
-```cmd
-echo Bienvenido al sistema!
+```bash
+sudo apt full-upgrade
 ```
 
-> Muestra un mensaje personalizado.
-## 3. `pause` 
+> Realiza una actualización más profunda, manejando dependencias.
 
-Detiene temporalmente la ejecución y muestra el mensaje “Presione una tecla para continuar…”.
 
-```cmd
-pause
+## 3. `apt install`
+
+| Comando                              | Descripción                               |
+| ------------------------------------ | ----------------------------------------- |
+| `sudo apt install paquete`           | Instala un paquete                        |
+| `sudo apt install paquete1 paquete2` | Instala múltiples paquetes                |
+| `apt show paquete`                   | Muestra información detallada del paquete |
+| `apt search palabra`                 | Busca paquetes por nombre o descripción   |
+
+**Ejemplos combinados:**
+
+```bash
+sudo apt install htop
 ```
 
-> Útil en scripts para que el usuario lea mensajes antes de continuar.
-## 4. `color` 
+> Instala el monitor de procesos *htop*.
 
-Permite modificar los colores de texto y fondo de la consola.
-
-|Código|Color|
-|---|---|
-|0|Negro|
-|1|Azul|
-|2|Verde|
-|4|Rojo|
-|7|Blanco grisáceo|
-|A|Verde claro|
-|B|Azul claro|
-|C|Rojo claro|
-|F|Blanco brillante|
-
-**Ejemplos:**
-
-```cmd
-color 0A
+```bash
+apt search editor
 ```
 
-> Fondo negro, texto verde claro.
+> Busca paquetes relacionados con *editor*.
 
-```cmd
-color F4
+
+## 4. `apt remove` y `apt purge`
+
+| Comando                   | Descripción                                       |
+| ------------------------- | ------------------------------------------------- |
+| `sudo apt remove paquete` | Elimina un paquete, pero mantiene configuraciones |
+| `sudo apt purge paquete`  | Elimina paquete y sus archivos de configuración   |
+| `sudo apt autoremove`     | Elimina dependencias que ya no se necesitan       |
+
+**Ejemplos combinados:**
+
+```bash
+sudo apt remove firefox
 ```
 
-> Fondo blanco, texto rojo.
-## 5. `title` 
+> Elimina Firefox, manteniendo configuraciones.
 
-Cambia el texto mostrado en la barra superior de la ventana del símbolo del sistema.
-
-```cmd
-title Modo Administrador
+```bash
+sudo apt purge firefox
 ```
 
-> El título de la ventana cambiará a “Modo Administrador”.
-## 6. `date` y `time` 
+> Elimina Firefox y todas las configuraciones asociadas.
 
-Mostrar o cambiar fecha y hora
-
-|Comando|Descripción|
-|---|---|
-|`date`|Muestra la fecha actual y permite cambiarla|
-|`time`|Muestra la hora actual y permite modificarla|
-
-**Ejemplos:**
-
-```cmd
-date /t
-time /t
+```bash
+sudo apt autoremove
 ```
 
-> Muestra la fecha y hora actual sin pedir cambios.
-## 7. `systeminfo` 
+> Limpia dependencias no usadas.
 
-Muestra información detallada del sistema operativo, hardware, red, etc.
 
-```cmd
-systeminfo
+## 5. `dpkg`
+
+| Comando               | Descripción                             |
+| --------------------- | --------------------------------------- |
+| `dpkg -i archivo.deb` | Instala un paquete `.deb`               |
+| `dpkg -r paquete`     | Elimina un paquete                      |
+| `dpkg -l`             | Lista paquetes instalados               |
+| `dpkg -L paquete`     | Muestra archivos que instala un paquete |
+
+**Ejemplos combinados:**
+
+```bash
+sudo dpkg -i google-chrome.deb
 ```
 
-> Muestra el nombre del equipo, versión de Windows, procesador, RAM, actualizaciones instaladas, etc.
+> Instala Chrome desde un archivo `.deb`.
 
-```cmd
-systeminfo | find "Host Name"
+```bash
+dpkg -L bash
 ```
 
-> Muestra únicamente el nombre del equipo.
-## 8. `tasklist` y `taskkill` 
+> Muestra qué archivos pertenecen al paquete *bash*.
 
-Ver y finalizar procesos
 
-|Comando|Descripción|
-|---|---|
-|`tasklist`|Lista los procesos en ejecución|
-|`tasklist /fi "imagename eq notepad.exe"`|Filtra los procesos por nombre|
-|`taskkill /im notepad.exe /f`|Cierra el Bloc de notas (forzadamente)|
+## 6. Limpieza del sistema
 
-**Ejemplo combinado:**
+| Comando               | Descripción                        |
+| --------------------- | ---------------------------------- |
+| `sudo apt clean`      | Limpia paquetes descargados        |
+| `sudo apt autoclean`  | Limpia paquetes obsoletos          |
+| `sudo apt autoremove` | Elimina dependencias no necesarias |
 
-```cmd
-tasklist | find "chrome"
+**Ejemplos combinados:**
+
+```bash
+sudo apt clean
 ```
 
-> Busca procesos de Chrome activos.
-## 9. `chkdsk` 
+> Borra paquetes descargados que ya no se necesitan.
 
-Comprobar disco
 
-Revisa el sistema de archivos y la integridad del disco.
+## 7. Repositorios
 
-|Comando|Descripción|
-|---|---|
-|`chkdsk C:`|Verifica el disco C: sin repararlo|
-|`chkdsk C: /f`|Corrige errores en el disco|
-|`chkdsk D: /r`|Busca sectores defectuosos y los repara|
+| Comando                                   | Descripción                           |
+| ----------------------------------------- | ------------------------------------- |
+| `cat /etc/apt/sources.list`               | Muestra los repositorios configurados |
+| `sudo add-apt-repository ppa:repositorio` | Añade un repositorio PPA (Ubuntu)     |
 
-**Ejemplo:**
+**Ejemplos combinados:**
 
-```cmd
-chkdsk C: /f /r
+```bash
+sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 ```
 
-> Repara errores y sectores defectuosos del disco principal.
-## 10. `sfc` 
+> Añade un PPA para instalar una versión alternativa de GIMP.
 
-Analiza y repara archivos del sistema de Windows dañados.
+## 8. Diagnóstico de paquetes
 
-```cmd
-sfc /scannow
+| Comando                 | Descripción                               |
+| ----------------------- | ----------------------------------------- |
+| `apt list --installed`  | Muestra paquetes instalados               |
+| `apt list --upgradable` | Muestra paquetes que tienen actualización |
+| `dpkg --audit`          | Muestra paquetes con problemas            |
+
+**Ejemplos combinados:**
+
+```bash
+apt list --upgradable
 ```
 
-> Escanea el sistema y reemplaza archivos dañados automáticamente.
-## 11. `shutdown` 
+> Comprueba qué paquetes pueden actualizarse.
 
-Apagar o reiniciar el sistema
 
-|Comando|Descripción|
-|---|---|
-|`shutdown /s /t 0`|Apaga el equipo inmediatamente|
-|`shutdown /r /t 30`|Reinicia el equipo en 30 segundos|
-|`shutdown /l`|Cierra la sesión actual|
-|`shutdown /a`|Cancela un apagado programado|
+## 💡 Consejos
 
-**Ejemplo:**
+* Actualizar sistema completo:
 
-```cmd
-shutdown /s /t 60 /c "El equipo se apagará en 1 minuto."
+```bash
+sudo apt update && sudo apt upgrade -y
 ```
 
-> Programa un apagado con mensaje de advertencia.
-## 12. `ver` y `hostname`
+* Buscar si un paquete está instalado:
 
-|Comando|Descripción|
-|---|---|
-|`ver`|Muestra la versión del sistema operativo|
-|`hostname`|Muestra el nombre del equipo|
-
-**Ejemplo combinado:**
-
-```cmd
-echo Equipo: %COMPUTERNAME%
-ver
+```bash
+dpkg -l | grep nombre
 ```
 
-> Muestra el nombre del equipo y la versión de Windows.
-## 13. `set` 
+* Ver qué paquete instaló un comando:
 
-Permite ver o modificar variables de entorno del sistema.
-
-|Comando|Descripción|
-|---|---|
-|`set`|Muestra todas las variables de entorno actuales|
-|`set usuario=Dani`|Crea o modifica una variable temporal|
-|`echo %usuario%`|Muestra el valor de la variable|
-
-**Ejemplo:**
-
-```cmd
-set curso=SMR2
-echo Bienvenido al curso %curso%
+```bash
+dpkg -S /usr/bin/python3
 ```
 
-> Crea una variable y la muestra en pantalla.
-## 14. `tree` y `assoc`
+* Instalar desde archivo `.deb` y arreglar dependencias:
 
-|Comando|Descripción|
-|---|---|
-|`tree`|Muestra la estructura de carpetas en forma de árbol|
-|`tree /f`|Muestra también los archivos|
-|`assoc`|Muestra asociaciones de extensiones de archivo|
-|`assoc .txt`|Muestra o cambia el programa asociado a `.txt`|
-
-**Ejemplo:**
-
-```cmd
-tree C:\Users\ /f > estructura.txt
+```bash
+sudo dpkg -i archivo.deb
+sudo apt --fix-broken install
 ```
 
-> Guarda en un archivo de texto la estructura completa de carpetas y archivos del usuario.
-
-## 💡 Consejos 
-
-- Combina comandos con `&&` para ejecutar varios consecutivamente.
-    
-- Usa `>` o `>>` para redirigir la salida a un archivo.
-    
-- Ejecuta CMD como **Administrador** para usar comandos del sistema.
-    
-- `help <comando>` muestra la ayuda específica de cada uno.
-    
-
----

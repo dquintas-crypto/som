@@ -1,238 +1,258 @@
 ---
-title: ​⚙️​ Sistema y administración
+title: ​⚙️​ Procesos y sistemas
 ---
 
-# ​⚙️​ Sistema y administración
+# ​⚙️​ Procesos y sistemas
 
-## 1. `wmic`  
+## 1. `ps`
 
-Interfaz de administración de Windows
+| Comando           | Descripción                                       |
+| ----------------- | ------------------------------------------------- |
+| `ps`              | Muestra procesos del usuario actual               |
+| `ps -e`           | Muestra todos los procesos del sistema            |
+| `ps -f`           | Muestra formato completo                          |
+| `ps aux`          | Lista detallada de todos los procesos             |
+| `ps aux | grep nombre` | Filtra procesos por nombre                   |
 
-Permite obtener información avanzada del sistema, hardware, software y configuraciones.
+**Ejemplos combinados:**
 
-|Comando|Descripción|
-|---|---|
-|`wmic os get caption,version`|Muestra el nombre y versión del sistema operativo|
-|`wmic cpu get name`|Muestra el modelo del procesador|
-|`wmic bios get serialnumber`|Muestra el número de serie del BIOS|
-|`wmic logicaldisk get name,size,freespace`|Muestra las unidades y espacio libre|
+```bash
+ps aux | grep firefox
+````
 
-**Ejemplo:**
+> Busca procesos cuyo nombre contenga "firefox".
 
-```cmd
-wmic diskdrive get model,name,size
+```bash
+ps -ef
 ```
 
-> Lista los discos duros instalados y su tamaño.
- ## 2. `sc`  
+> Muestra procesos con árbol de jerarquías.
 
-Administrar servicios del sistema
 
-Permite crear, iniciar, detener o consultar servicios del sistema Windows.
 
-|Comando|Descripción|
-|---|---|
-|`sc query`|Muestra todos los servicios y su estado|
-|`sc stop wuauserv`|Detiene el servicio de actualizaciones de Windows|
-|`sc start spooler`|Inicia el servicio de impresión|
-|`sc config nombre_servicio start= disabled`|Deshabilita un servicio|
+## 2. `top` y `htop`
 
-**Ejemplo:**
+| Comando | Descripción                     |
+| ------- | ------------------------------- |
+| `top`   | Muestra procesos en tiempo real |
+| `htop`  | Similar a top pero más visual   |
 
-```cmd
-sc query type= service state= all | find "RUNNING"
+**Ejemplos combinados:**
+
+```bash
+top
 ```
 
-> Muestra todos los servicios actualmente en ejecución.
- ## 3. `net start` y `net stop` 
+> Vista dinámica de procesos.
 
-Control rápido de servicios
-
-|Comando|Descripción|
-|---|---|
-|`net start`|Lista los servicios actualmente activos|
-|`net start spooler`|Inicia el servicio de impresión|
-|`net stop spooler`|Detiene el servicio de impresión|
-
-**Ejemplo combinado:**
-
-```cmd
-net stop wuauserv && net start wuauserv
+```bash
+htop
 ```
 
-> Reinicia el servicio de actualizaciones de Windows.
- ## 4. `taskmgr`, `control`, y `compmgmt.msc`
+> Vista avanzada (si está instalado).
 
-Ejecutan herramientas gráficas del sistema desde CMD.
 
-|Comando|Descripción|
-|---|---|
-|`taskmgr`|Abre el Administrador de tareas|
-|`control`|Abre el Panel de control|
-|`compmgmt.msc`|Abre la Consola de administración de equipos|
-|`services.msc`|Abre el Administrador de servicios|
-|`devmgmt.msc`|Abre el Administrador de dispositivos|
 
-**Ejemplo:**
+## 3. `kill`
 
-```cmd
-control printers
+| Comando        | Descripción                              |
+| -------------- | ---------------------------------------- |
+| `kill PID`     | Envía señal SIGTERM para detener proceso |
+| `kill -9 PID`  | Fuerza detención (SIGKILL)               |
+| `kill -15 PID` | Finaliza de forma elegante               |
+
+**Ejemplos combinados:**
+
+```bash
+kill 2310
 ```
 
-> Abre directamente la ventana de impresoras y escáneres.
- ## 5. `gpupdate` y `gpresult` 
+> Envía señal de parada a ese PID.
 
-Políticas de grupo
-
-Permiten actualizar o ver las políticas de grupo aplicadas al sistema o usuario.
-
-|Comando|Descripción|
-|---|---|
-|`gpupdate /force`|Fuerza la actualización de todas las políticas de grupo|
-|`gpresult /R`|Muestra las políticas aplicadas al usuario y equipo actual|
-|`gpresult /H resultado.html`|Genera un informe HTML con las políticas aplicadas|
-
-**Ejemplo:**
-
-```cmd
-gpresult /H C:\reportes\politicas.html
+```bash
+kill -9 4500
 ```
 
-> Guarda un informe completo de políticas en formato HTML.
- ## 6. `shutdown` 
+> Fuerza la detención del proceso 4500.
 
-Control de energía y reinicio
 
-|Comando|Descripción|
-|---|---|
-|`shutdown /s /t 0`|Apaga el sistema inmediatamente|
-|`shutdown /r /t 60 /c "Reinicio programado"`|Reinicia en 1 minuto con mensaje|
-|`shutdown /a`|Cancela un apagado o reinicio en curso|
 
-**Ejemplo combinado:**
+## 4. `pkill` y `killall`
 
-```cmd
-shutdown /r /t 120 /c "Reinicio automático para mantenimiento"
+| Comando          | Descripción                            |
+| ---------------- | -------------------------------------- |
+| `pkill nombre`   | Mata procesos por nombre               |
+| `killall nombre` | Mata todos los procesos con ese nombre |
+
+**Ejemplos combinados:**
+
+```bash
+pkill firefox
 ```
 
-> Programa un reinicio en 2 minutos con aviso.
- ## 7. `diskpart` 
+> Cierra todos los procesos llamados *firefox*.
 
-Administración de discos
-
-Herramienta avanzada para particionar, formatear y gestionar unidades.
-
-**Comandos básicos dentro de `diskpart`:**
-
-```cmd
-diskpart
-list disk
-select disk 0
-list volume
-select volume 2
-assign letter=E
-exit
+```bash
+killall python3
 ```
 
-> Asigna una letra de unidad a una partición seleccionada.
- ## 8. `bcdedit` 
+> Detiene todos los procesos python3.
 
-Editor del gestor de arranque
 
-Permite modificar la configuración del arranque de Windows.
 
-|Comando|Descripción|
-|---|---|
-|`bcdedit /enum`|Muestra las entradas de arranque|
-|`bcdedit /set {current} description "Windows 11 Pro"`|Cambia el nombre de la entrada actual|
-|`bcdedit /timeout 10`|Cambia el tiempo de espera del menú de arranque|
+## 5. `jobs`, `fg`, `bg`
 
-**Ejemplo:**
+| Comando    | Descripción                              |
+| ---------- | ---------------------------------------- |
+| `jobs`     | Muestra procesos en segundo plano        |
+| `fg %n`    | Trae al primer plano un proceso detenido |
+| `bg %n`    | Envía el proceso al segundo plano        |
+| `Ctrl + Z` | Detiene temporalmente el proceso actual  |
 
-```cmd
-bcdedit /set {bootmgr} displaybootmenu yes
+**Ejemplos combinados:**
+
+```bash
+sleep 100 &
 ```
 
-> Habilita el menú de arranque al iniciar el sistema.
- ## 9. `powercfg` 
+> Ejecuta un proceso en segundo plano.
 
-Configuración de energía
-
-|Comando|Descripción|
-|---|---|
-|`powercfg /list`|Muestra los planes de energía disponibles|
-|`powercfg /setactive GUID`|Activa un plan de energía concreto|
-|`powercfg /hibernate on`|Activa la hibernación|
-|`powercfg /energy`|Genera un informe de eficiencia energética|
-
-**Ejemplo:**
-
-```cmd
-powercfg /energy /output C:\reportes\energia.html
+```bash
+fg %1
 ```
 
-> Crea un informe detallado del uso de energía del sistema.
- ## 10. `reg` 
+> Trae al foreground el proceso nº1.
 
-Administración del registro de Windows
 
-Permite consultar, crear o eliminar claves del registro.
 
-|Comando|Descripción|
-|---|---|
-|`reg query HKLM\Software`|Consulta una clave del registro|
-|`reg add HKCU\Software\MiApp /v Version /t REG_SZ /d 1.0`|Añade una clave nueva|
-|`reg delete HKCU\Software\MiApp /f`|Elimina una clave|
+## 6. `systemctl` 
 
-**Ejemplo:**
+| Comando                               | Descripción                   |
+| ------------------------------------- | ----------------------------- |
+| `systemctl status servicio`           | Estado del servicio           |
+| `systemctl start servicio`            | Inicia un servicio            |
+| `systemctl stop servicio`             | Detiene un servicio           |
+| `systemctl restart servicio`          | Reinicia un servicio          |
+| `systemctl enable servicio`           | Habilita inicio automático    |
+| `systemctl disable servicio`          | Deshabilita inicio automático |
+| `systemctl list-units --type=service` | Lista servicios cargados      |
 
-```cmd
-reg query HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+**Ejemplos combinados:**
+
+```bash
+systemctl status ssh
 ```
 
-> Muestra parámetros avanzados de red almacenados en el registro.
- ## 11. `systeminfo` y `driverquery`
+> Muestra estado del servicio SSH.
 
-|Comando|Descripción|
-|---|---|
-|`systeminfo`|Muestra información detallada del sistema|
-|`driverquery /v`|Lista todos los controladores instalados con detalles|
-|`driverquery /fo csv > drivers.csv`|Exporta los controladores a un archivo CSV|
-
-**Ejemplo:**
-
-```cmd
-driverquery /si
+```bash
+systemctl restart apache2
 ```
 
-> Muestra información sobre los controladores firmados digitalmente.
- ## 12. `schtasks` 
+> Reinicia el servidor web Apache.
 
-Programar tareas
 
-Permite crear, eliminar o listar tareas programadas.
+## 7. `uptime`, `who`, `hostname`
 
-|Comando|Descripción|
-|---|---|
-|`schtasks /query`|Muestra todas las tareas programadas|
-|`schtasks /create /sc daily /tn "Backup" /tr "C:\backup.bat" /st 22:00`|Crea una tarea diaria|
-|`schtasks /delete /tn "Backup" /f`|Elimina una tarea|
+| Comando       | Descripción                                  |
+| ------------- | -------------------------------------------- |
+| `uptime`      | Tiempo encendido, usuarios conectados, carga |
+| `who`         | Usuarios conectados                          |
+| `hostname`    | Nombre del equipo                            |
+| `hostname -I` | IP del sistema                               |
 
-**Ejemplo:**
+**Ejemplos combinados:**
 
-```cmd
-schtasks /create /sc weekly /d MON /tn "Limpieza" /tr "C:\scripts\clean.bat" /st 09:00
+```bash
+uptime
 ```
 
-> Programa una tarea semanal los lunes a las 9:00 a.m.
- ## 💡 Consejos 
+> Muestra los últimos 1, 5 y 15 minutos de carga.
 
-- Ejecuta CMD como **Administrador** para usar herramientas de sistema.
-    
-- Usa `help <comando>` para obtener ayuda detallada.
-    
-- Los comandos `wmic`, `bcdedit`, `reg` y `powercfg` son **potentes y sensibles**: usa con precaución.
-    
-- Para scripts automáticos, combina varios comandos con `&&` o crea archivos `.bat`.
-    
- 
+
+## 8. Uso de memoria y CPU
+
+| Comando   | Descripción                       |
+| --------- | --------------------------------- |
+| `free -h` | Uso de memoria en formato legible |
+| `vmstat`  | Estadísticas de memoria y CPU     |
+| `mpstat`  | Uso detallado por CPU             |
+
+**Ejemplos combinados:**
+
+```bash
+free -h
+```
+
+> Muestra RAM total, usada y libre.
+
+
+## 9. Uso de disco
+
+| Comando          | Descripción                  |
+| ---------------- | ---------------------------- |
+| `df -h`          | Uso de disco por particiones |
+| `du -sh carpeta` | Tamaño total de una carpeta  |
+| `lsblk`          | Lista discos y particiones   |
+
+**Ejemplos combinados:**
+
+```bash
+du -sh /var/log
+```
+
+> Muestra el tamaño total de `/var/log`.
+
+
+
+## 10. Combinaciones
+
+* Ver los 10 procesos que más CPU consumen:
+
+```bash
+ps aux --sort=-%cpu | head
+```
+
+* Ver los 10 que más memoria consumen:
+
+```bash
+ps aux --sort=-%mem | head
+```
+
+* Reiniciar servicios si están caídos:
+
+```bash
+systemctl is-active apache2 || systemctl restart apache2
+```
+
+> Reinicia apache solo si está detenido.
+
+---
+
+## 💡 Consejos
+
+* Detener un proceso que se ha quedado colgado:
+
+```bash
+kill -9 PID
+```
+
+* Ver solo servicios fallidos:
+
+```bash
+systemctl --failed
+```
+
+* Ver procesos como árbol:
+
+```bash
+ps axjf
+```
+
+* Ver cuántos núcleos tiene la CPU:
+
+```bash
+nproc
+```
+
+

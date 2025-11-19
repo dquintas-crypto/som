@@ -32,9 +32,7 @@ export default defineConfig({
                   { text: '⚙️ Administración', link: '/windows/ejemplos/administracion' },
                   { text: '🧰​ Utilidades', link: '/windows/ejemplos/utilidades' },
                   { text: '🔐​ Usuarios', link: '/windows/ejemplos/usuarios' },                  
-                  { text: '💾​ Discos', link: '/windows/ejemplos/discos' },                  
-                  { text: '🧮​ Scripts', link: '/windows/ejemplos/scripts' },                  
-                  { text: '🧱​ Entorno', link: '/windows/ejemplos/entorno' }
+                  { text: '💾​ Discos y espacio', link: '/windows/ejemplos/discos' }
                 ]
               }
             ]
@@ -57,8 +55,8 @@ export default defineConfig({
                   { text: '​🗃️​ Archivos', link: '/linux/ejemplos/archivos.md' },
                   { text: '🔐​ Permisos', link: '/linux/ejemplos/usuarios' },                  
                   { text: '🌐 Red', link: '/linux/ejemplos/red' },
-                  { text: '⚙️ Administración', link: '/linux/ejemplos/administracion' },
-                  { text: '🧰​ Utilidades', link: '/linux/ejemplos/utilidades' },
+                  { text: '⚙️ Procesos', link: '/linux/ejemplos/administracion' },
+                  { text: '📦​ Gestión de paquetes', link: '/linux/ejemplos/paquetes' },
                   { text: '💾​ Discos', link: '/linux/ejemplos/discos' },                  
                   { text: '🧮​ Scripts', link: '/linux/ejemplos/scripts' },                  
                   { text: '🧱​ Entorno', link: '/linux/ejemplos/entorno' }
@@ -70,6 +68,10 @@ export default defineConfig({
       }]
     },
 
+    outline: {
+      label: 'Navegación'
+    },
+    
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
