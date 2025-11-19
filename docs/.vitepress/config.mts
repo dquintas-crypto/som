@@ -48,7 +48,7 @@ export default defineConfig({
         items: [
           {
             text: '​🐧​ Comandos',
-            link: '/linux/index',
+            link: '/linux/comandos',
             items: [
               {
                 text: '📒 Ejemplos',
