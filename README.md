@@ -1,5 +1,5 @@
-# som
-Sistemas Operativos Monopuesto
+# Sistemas Operativos Monopuesto
+
 
 
 ## 📘 VitePress — Instalación y puesta en Marcha
