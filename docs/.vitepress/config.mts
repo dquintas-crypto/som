@@ -32,7 +32,9 @@ export default defineConfig({
                   { text: '⚙️ Administración', link: '/windows/ejemplos/administracion' },
                   { text: '🧰​ Utilidades', link: '/windows/ejemplos/utilidades' },
                   { text: '🔐​ Usuarios', link: '/windows/ejemplos/usuarios' },                  
-                  { text: '💾​ Discos y espacio', link: '/windows/ejemplos/discos' }
+                  { text: '💾​ Discos', link: '/windows/ejemplos/discos' },
+                    { text: '🧮​ Scripts', link: '/linux/ejemplos/scripts' },                  
+                  { text: '🧱​ Entorno', link: '/linux/ejemplos/entorno' }
                 ]
               }
             ]
@@ -57,9 +59,7 @@ export default defineConfig({
                   { text: '🌐 Red', link: '/linux/ejemplos/red' },
                   { text: '⚙️ Procesos', link: '/linux/ejemplos/administracion' },
                   { text: '📦​ Gestión de paquetes', link: '/linux/ejemplos/paquetes' },
-                  { text: '💾​ Discos', link: '/linux/ejemplos/discos' },                  
-                  { text: '🧮​ Scripts', link: '/linux/ejemplos/scripts' },                  
-                  { text: '🧱​ Entorno', link: '/linux/ejemplos/entorno' }
+                  { text: '💾​ Discos y espacio', link: '/linux/ejemplos/discos' }
                 ]
               }
             ]
