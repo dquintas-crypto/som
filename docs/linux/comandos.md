@@ -55,7 +55,7 @@ title: 🐧 Comandos básicos de Linux
 | `chown usuario archivo`       | Cambia el propietario.                     |
 | `chown usuario:grupo archivo` | Cambia propietario y grupo.                |
 
-
+📒 [Ejemplos](./ejemplos/usuarios.md)
 
 ## ⚙️ Procesos y sistema
 
@@ -70,7 +70,7 @@ title: 🐧 Comandos básicos de Linux
 | `shutdown -h now` | Apaga el sistema.                                |
 | `reboot`          | Reinicia la máquina.                             |
 
-
+📒 [Ejemplos](./ejemplos/administracion.md)
 
 ## 🌐 Red
 
@@ -117,7 +117,7 @@ title: 🐧 Comandos básicos de Linux
 
 
 
-## 📦 Comprobación de disco y espacio
+## 📦 Discos y espacio
 
 | Comando          | Descripción                         |
 | ---------------- | ----------------------------------- |
