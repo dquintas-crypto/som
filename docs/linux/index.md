@@ -1,7 +1,7 @@
 ---
 outline: false
 ---
-## ​🖥️​ [Comandos Linux](/windows/comandos-cmd)
+## ​🖥️​ [Comandos Linux](/linux/comandos)
 
 ![Terminal](/images/linux.png)
 

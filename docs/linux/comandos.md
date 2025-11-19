@@ -17,9 +17,9 @@ title: 🐧 Comandos básicos de Linux
 | `cd /ruta`  | Va a un directorio concreto.                            |
 | `cd ~`      | Va al directorio personal del usuario.                  |
 
+📒 [Ejemplos](./ejemplos/directorios.md)
 
-
-## 📂 Gestión de archivos y directorios
+## 🗃️ Gestión de archivos y directorios
 
 | Comando                | Descripción                         |
 | ---------------------- | ----------------------------------- |
@@ -32,7 +32,7 @@ title: 🐧 Comandos básicos de Linux
 | `rm archivo`           | Borra un archivo.                   |
 | `rm -r directorio`     | Borra un directorio y su contenido. |
 
-
+📒 [Ejemplos](./ejemplos/archivos.md)
 
 ## 📄 Visualización de archivos
 
@@ -44,7 +44,7 @@ title: 🐧 Comandos básicos de Linux
 | `tail archivo`    | Últimas 10 líneas.                                      |
 | `tail -f archivo` | Muestra en tiempo real lo que se escribe en el archivo. |
 
-
+📒 [Ejemplos](./ejemplos/archivos.md)
 
 ## 🔒 Permisos y propietarios
 
@@ -82,9 +82,9 @@ title: 🐧 Comandos básicos de Linux
 | `wget url`        | Descarga archivos desde internet.    |
 | `ss -tulpn`       | Ver puertos y servicios activos.     |
 
+📒 [Ejemplos](./ejemplos/red.md)
 
-
-## 📦 Gestión de paquetes (Debian/Ubuntu)
+## 📦 Gestión de paquetes 
 
 | Comando                    | Descripción                           |
 | -------------------------- | ------------------------------------- |
@@ -95,6 +95,7 @@ title: 🐧 Comandos básicos de Linux
 | `sudo apt autoremove`      | Limpia paquetes innecesarios.         |
 
 
+📒 [Ejemplos](./ejemplos/paquetes.md)
 
 ## 📝 Edición de archivos
 

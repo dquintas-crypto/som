@@ -53,15 +53,15 @@ export default defineConfig({
                 text: '📒 Ejemplos',
                 collapsed: true,
                 items: [
-                  { text: '📁 Directorios', link: '/windows/ejemplos/directorios.md' },
-                  { text: '​🗃️​ Archivos', link: '/windows/ejemplos/archivos.md' },
-                  { text: '🌐 Red', link: '/windows/ejemplos/red' },
-                  { text: '⚙️ Administración', link: '/windows/ejemplos/administracion' },
-                  { text: '🧰​ Utilidades', link: '/windows/ejemplos/utilidades' },
-                  { text: '🔐​ Usuarios', link: '/windows/ejemplos/usuarios' },                  
-                  { text: '💾​ Discos', link: '/windows/ejemplos/discos' },                  
-                  { text: '🧮​ Scripts', link: '/windows/ejemplos/scripts' },                  
-                  { text: '🧱​ Entorno', link: '/windows/ejemplos/entorno' }
+                  { text: '📁 Directorios', link: '/linux/ejemplos/directorios.md' },
+                  { text: '​🗃️​ Archivos', link: '/linux/ejemplos/archivos.md' },
+                  { text: '🔐​ Permisos', link: '/linux/ejemplos/usuarios' },                  
+                  { text: '🌐 Red', link: '/linux/ejemplos/red' },
+                  { text: '⚙️ Administración', link: '/linux/ejemplos/administracion' },
+                  { text: '🧰​ Utilidades', link: '/linux/ejemplos/utilidades' },
+                  { text: '💾​ Discos', link: '/linux/ejemplos/discos' },                  
+                  { text: '🧮​ Scripts', link: '/linux/ejemplos/scripts' },                  
+                  { text: '🧱​ Entorno', link: '/linux/ejemplos/entorno' }
                 ]
               }
             ]
