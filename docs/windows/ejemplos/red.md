@@ -127,80 +127,13 @@ Tabla ARP (asociaciones IP ↔ MAC)
 arp -a
 ```
 
-> Muestra todas las direcciones IP y sus direcciones MAC asociadas en la red local.
- ## 7. `net` 
-
-Utilidades de red y usuarios
-
-|Comando|Descripción|
-|---|---|
-|`net user`|Muestra los usuarios locales|
-|`net share`|Muestra los recursos compartidos|
-|`net view`|Muestra los equipos visibles en la red|
-|`net use`|Conecta o desconecta unidades de red|
-
-**Ejemplos combinados:**
-
-```cmd
-net use Z: \\Servidor\Recursos /user:Alumno123
-```
-
-> Conecta la carpeta compartida `\\Servidor\Recursos` como unidad `Z:`.
-
-```cmd
-net view
-```
-
-> Muestra los equipos conectados en la red local.
- ## 8. `pathping`  
-
-Combina `ping` y `tracert`
-Muestra el recorrido y la latencia promedio de cada salto.
-
-|Comando|Descripción|
-|---|---|
-|`pathping google.com`|Rastrea la ruta e informa de la pérdida de paquetes en cada salto|
-
-**Ejemplo:**
-
-```cmd
-pathping 8.8.8.8
-```
-
-> Analiza la ruta hacia el DNS de Google e identifica dónde se pierden paquetes.
- ## 9. `netsh`  
-
-Configuración avanzada de red
-Herramienta de línea de comandos para configurar interfaces, cortafuegos, Wi-Fi, etc.
-
-|Comando|Descripción|
-|---|---|
-|`netsh wlan show profiles`|Lista las redes Wi-Fi guardadas|
-|`netsh wlan show profile "MiRed" key=clear`|Muestra la contraseña guardada de una red|
-|`netsh int ip reset`|Restablece la configuración TCP/IP|
-|`netsh advfirewall show allprofiles`|Muestra la configuración actual del firewall|
-
-**Ejemplos combinados:**
-
-```cmd
-netsh wlan export profile folder=C:\wifi key=clear
-```
-
-> Exporta todas las redes Wi-Fi guardadas (incluyendo contraseñas) a un archivo XML en `C:\wifi`.
-
-```cmd
-netsh int ip reset
-```
-
-> Restablece el protocolo TCP/IP a su configuración predeterminada.
  ## 💡 Consejos útiles
 
-- Usa `Ctrl + C` para detener comandos como `ping -t` o `pathping`.
+- Usa `Ctrl + C` para detener comandos como `ping -t`.
     
 - `ipconfig /flushdns` ayuda a resolver errores al acceder a páginas web.
     
 - Combina `netstat` con `find` para buscar procesos o puertos específicos.
     
-- `netsh` requiere permisos de administrador para la mayoría de configuraciones.
     
  
