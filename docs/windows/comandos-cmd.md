@@ -77,7 +77,10 @@ title: ​🖥️​ Comandos Windows (CMD)
 |----------|--------------|----------|
 | `net user` | Muestra o gestiona usuarios locales | `net user Dani /add` |
 | `net localgroup` | Gestiona grupos locales | `net localgroup administradores Dani /add` |
+| `net accounts` | Configuración de contraseñas y políticas | `net accounts /minpwlen:8` |
+| `whoami` | Identifica al usuario actual | `whoami` |
 | `runas` | Ejecuta un programa como otro usuario | `runas /user:Administrador cmd` |
+| `icacls` | Permisos y conrol de acceso | `icacls C:\carpeta /grant Usuario:R` |
 
 📒 [Ejemplos](./ejemplos/usuarios.md) 
 

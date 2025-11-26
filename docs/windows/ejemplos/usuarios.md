@@ -17,17 +17,14 @@ Permite crear, modificar o eliminar cuentas de usuario.
 |`net user nombre_usuario`|Muestra información detallada de un usuario|
 |`net user nombre_usuario contraseña /add`|Crea un nuevo usuario con contraseña|
 |`net user nombre_usuario /delete`|Elimina un usuario|
-|`net user nombre_usuario /active:no`|Desactiva una cuenta de usuario|
-|`net user nombre_usuario /active:yes`|Reactiva una cuenta deshabilitada|
 
 **Ejemplos:**
 
 ```cmd
 net user alumno123 Contraseña123 /add
-net user alumno123 /active:no
 ```
 
-> Crea un nuevo usuario y luego lo desactiva temporalmente.
+> Crea un nuevo usuario.
 ## 2. `net localgroup` 
 
 Administrar grupos locales
@@ -51,26 +48,8 @@ net localgroup Soporte tecnico1 /add
 ```
 
 > Crea el grupo **Soporte** y agrega al usuario **tecnico1**.
-## 3. `whoami` 
 
-Identificar el usuario actual
-
-Muestra información del usuario actual que ejecuta la consola.
-
-|Comando|Descripción|
-|---|---|
-|`whoami`|Muestra el nombre del usuario actual|
-|`whoami /groups`|Lista los grupos a los que pertenece el usuario|
-|`whoami /priv`|Muestra los privilegios del usuario|
-
-**Ejemplo:**
-
-```cmd
-whoami /groups
-```
-
-> Muestra todos los grupos de seguridad asociados al usuario actual.
-## 4. `net accounts` 
+## 3. `net accounts` 
 
 Configuración de contraseñas y políticas
 
@@ -90,6 +69,27 @@ net accounts /minpwlen:8 /maxpwage:60 /lockoutthreshold:5
 ```
 
 > Configura políticas básicas de seguridad de contraseñas.
+> 
+## 4. `whoami` 
+
+Identificar el usuario actual
+
+Muestra información del usuario actual que ejecuta la consola.
+
+|Comando|Descripción|
+|---|---|
+|`whoami`|Muestra el nombre del usuario actual|
+|`whoami /groups`|Lista los grupos a los que pertenece el usuario|
+|`whoami /priv`|Muestra los privilegios del usuario|
+
+**Ejemplo:**
+
+```cmd
+whoami /groups
+```
+
+> Muestra todos los grupos de seguridad asociados al usuario actual.
+
 ## 5. `icacls` 
 
 Permisos y control de acceso
@@ -135,59 +135,7 @@ runas /user:Administrador "mmc compmgmt.msc"
 ```
 
 > Abre la consola de administración de equipos con privilegios de administrador.
-## 7. `net session` y `net share` 
 
-Recursos compartidos y sesiones
-
-|Comando|Descripción|
-|---|---|
-|`net session`|Muestra las sesiones de red activas|
-|`net share`|Muestra las carpetas compartidas del equipo|
-|`net share Datos=C:\Datos`|Crea un recurso compartido llamado _Datos_|
-|`net share Datos /delete`|Deja de compartir la carpeta _Datos_|
-
-**Ejemplo combinado:**
-
-```cmd
-net share Recursos=C:\Recursos /grant:Usuarios,READ
-```
-
-> Crea un recurso compartido con permisos de lectura para todos los usuarios.
-## 8. `net group` 
-
-Grupos en dominios (usado con Active Directory)
-
-_Solo disponible en equipos unidos a un dominio._
-
-|Comando|Descripción|
-|---|---|
-|`net group`|Lista los grupos del dominio actual|
-|`net group Profesores /domain`|Muestra miembros del grupo Profesores en el dominio|
-|`net group Profesores alumno123 /add /domain`|Añade un usuario al grupo en el dominio|
-
-**Ejemplo:**
-
-```cmd
-net group Alumnos /domain
-```
-
-> Lista los usuarios pertenecientes al grupo _Alumnos_ en el dominio.
-## 9. `dsquery` y `dsadd` 
-
-Administración avanzada de usuarios (solo dominio)
-
-|Comando|Descripción|
-|---|---|
-|`dsquery user -name alumno*`|Busca usuarios cuyo nombre empiece por _alumno_|
-|`dsadd user "CN=Alumno1,OU=Usuarios,DC=centro,DC=local" -pwd P@ssword1`|Crea un usuario en el dominio|
-
-**Ejemplo:**
-
-```cmd
-dsquery user -samid profesor1
-```
-
-> Busca un usuario específico dentro del dominio.
 ## 💡 Consejos
 
 - Ejecuta CMD como **Administrador** para usar la mayoría de comandos de usuarios y permisos.
@@ -196,5 +144,4 @@ dsquery user -samid profesor1
     
 - Usa `icacls /save` antes de modificar permisos para poder restaurarlos.
     
-- Para dominios, usa `net group`, `dsquery` y `dsadd`.
     
