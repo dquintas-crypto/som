@@ -99,6 +99,8 @@ title: ​🖥️​ Comandos Windows (CMD)
 
 | Comando | Descripción                                       | Ejemplo                          |
 | ------- | ------------------------------------------------- | -------------------------------- |
+| `REM`   | Añade un comentario                               | `REM Script para generar ususarios ` |
+| `::`    | Añade un comentario                               | `:: Script para generar ususarios `  |
 | `set`   | Muestra o asigna variables de entorno             | `set PATH`                       |
 | `setx`  | Asigna variables permanentes                      | `setx JAVA_HOME "C:\Java"`       |
 | `if`    | Evalúa una condición                              | `if exist datos.txt echo Existe` |
