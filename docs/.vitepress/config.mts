@@ -28,6 +28,7 @@ export default defineConfig({
                 items: [
                   { text: '📁 Directorios', link: '/windows/ejemplos/directorios.md' },
                   { text: '​🗃️​ Archivos', link: '/windows/ejemplos/archivos.md' },
+                  { text: '🔐​ Usuarios', link: '/windows/ejemplos/usuarios' },                  
                   { text: '🌐 Red', link: '/windows/ejemplos/red' },
                   { text: '⚙️ Administración', link: '/windows/ejemplos/administracion' },
                   { text: '🧰​ Utilidades', link: '/windows/ejemplos/utilidades' },

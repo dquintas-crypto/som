@@ -10,7 +10,6 @@ title: ​🖥️​ Comandos Windows (CMD)
 | ------- | --------------------------------------------------- | ------------------------ |
 | `dir`   | Lista los archivos y carpetas del directorio actual | `dir C:\Users`           |
 | `cd`    | Cambia de directorio                                | `cd C:\Windows\System32` |
-| `cd ..` | Sube un nivel en la jerarquía de carpetas           | `cd ..`                  |
 | `mkdir` | Crea una nueva carpeta                              | `mkdir proyectos`        |
 | `rmdir` | Elimina una carpeta vacía                           | `rmdir temp`             |
 | `tree`  | Muestra la estructura de carpetas                   | `tree /f`                |
