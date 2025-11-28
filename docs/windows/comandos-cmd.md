@@ -68,19 +68,6 @@ title: ​🖥️​ Comandos Windows (CMD)
 
 📒 [Ejemplos](./ejemplos/administracion.md)
 
- ## 🧰 Utilidades varias
-
-| Comando | Descripción                                | Ejemplo            |
-| ------- | ------------------------------------------ | ------------------ |
-| `cls`   | Limpia la pantalla                         | `cls`              |
-| `help`  | Muestra ayuda general o de un comando      | `help dir`         |
-| `echo`  | Muestra mensajes o activa/desactiva el eco | `echo Hola Mundo`  |
-| `color` | Cambia el color del texto y fondo          | `color 0A`         |
-| `title` | Cambia el título de la ventana             | `title Mi Consola` |
-| `ver`   | Muestra la versión del sistema operativo   | `ver`              |
-
-📒 [Ejemplos](./ejemplos/utilidades.md)
-
 
 ## 💾 Discos y almacenamiento
 
@@ -119,4 +106,15 @@ title: ​🖥️​ Comandos Windows (CMD)
 
 📒 [Ejemplos](./ejemplos/entorno.md)
  
+ ## 🧰 Utilidades varias
 
+| Comando | Descripción                                | Ejemplo            |
+| ------- | ------------------------------------------ | ------------------ |
+| `cls`   | Limpia la pantalla                         | `cls`              |
+| `help`  | Muestra ayuda general o de un comando      | `help dir`         |
+| `echo`  | Muestra mensajes o activa/desactiva el eco | `echo Hola Mundo`  |
+| `color` | Cambia el color del texto y fondo          | `color 0A`         |
+| `title` | Cambia el título de la ventana             | `title Mi Consola` |
+| `ver`   | Muestra la versión del sistema operativo   | `ver`              |
+
+📒 [Ejemplos](./ejemplos/utilidades.md)
